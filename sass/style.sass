@@ -1,0 +1,236 @@
+@font-face
+  font-family: 'Inter', sans-serif
+  src: url("./../assts/fonts/static/Inter-Bold.ttf") format("ttf"), url("./../assts/fonts/static/Inter-ExtraBold.ttf") format("ttf"), url("./../assts/fonts/static/Inter-Regular.ttf") format("ttf")
+  // ## Colors
+// ### Primary
+$SoftOrange: hsl(35, 77%, 62%)
+$SoftRed: hsl(5, 85%, 63%)
+
+// ### Neutral
+$Off-white: hsl(36, 100%, 99%)
+$GrayishBlue: hsl(233, 8%, 79%)
+$DarkGrayishBlue: hsl(236, 13%, 42%)
+$VeryDarkBlue: hsl(240, 100%, 5%)
+
+// ## Typography
+// ### Body Copy
+$FontSizeParagraph: 15px
+
+// ### Font
+$fontFamilyInter: 'Inter', sans-serif
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: $fontFamilyInter
+
+body
+  padding: 70px clamp(10px, 9vw, 120px)
+  font-family: $FontSizeParagraph
+  position: relative
+
+.header
+  padding-block-end: 38px
+
+  .header__nav
+    display: flex
+    justify-content: space-between
+    align-items: center
+    .nav__icon
+      display: none
+    .nav__menu
+      list-style: none
+      display: flex
+      gap: 20px
+      .menu__link
+        color: $VeryDarkBlue
+        text-decoration: none
+        &:hover
+          color: $SoftRed
+          text-decoration: none
+
+.main
+  display: grid
+  grid-template-areas: 'port asideNew''new asideNew'
+  gap: 20px 25px
+  justify-content: space-between
+  align-content: space-between
+  .main__port
+    grid-area: port
+    width: 100%
+    max-height: 300px
+
+  .main__new
+    grid-area: new
+    display: grid
+    grid-template-columns: repeat(2,50%)
+    align-content: center
+    .new__title
+      max-width: 280px
+      font-size: 3em
+      font-weight: 800
+      grid-row: 2 span
+      line-height: 1em
+    .new__information
+      max-width: 340px
+      line-height: 1.3em
+    .new__link
+      width: 170px
+      background: $SoftRed
+      color: $Off-white
+      margin: auto 0
+      padding: 10px
+      letter-spacing: 3px
+      text-decoration: none
+      text-align: center
+      font-weight: bold
+      text-transform: uppercase
+      transition: .5s
+      &:hover
+        background: $VeryDarkBlue
+
+  .main__asideNews
+    grid-area: asideNew
+    max-width: 305px
+    padding: 30px 20px
+    background: $VeryDarkBlue
+    .asideNews__title
+      color: $SoftOrange
+      font-size: 2.5em
+    .asideNews__section
+      border-block-end: 1px solid $GrayishBlue
+      padding-block: 20px
+      &:last-child
+        border-block-end: none
+        padding-block-end: 0
+      .section__title
+        color: $Off-white
+        font-size: 1.1em
+        &:hover
+          color: $SoftOrange
+      .section__information
+        color: $GrayishBlue
+        font-size: .9em
+        margin-block-start: 1em
+        line-height: 1.7em
+
+.footer
+  display: flex
+  margin-block-start: 38px
+  justify-content: space-between
+  flex-wrap: wrap
+  gap: 20px
+  .footer__section
+    display: grid
+    grid-template-areas: 'img number' 'img title' 'img information'
+    align-content: center
+    gap: 10px
+    width: 330px
+    .section__img
+      height: 120px
+      grid-area: img
+    .section__number
+      grid-area: number
+      font-size: 2em
+      font-weight: bold
+      color: $GrayishBlue
+    .section__title
+      grid-area: title
+      font-size: 1.04em
+      font-weight: 800
+      &:hover
+        color: $SoftRed
+    .section__information
+      grid-area: information
+      font-size: 1em
+      color: $DarkGrayishBlue
+
+.attribution
+  font-size: 13px
+  text-align: center
+  position: absolute
+  bottom: 20px
+  left: 50%
+  transform: translateX(-50%)
+  a
+    color: $SoftRed
+    text-decoration: none
+    font-weight: bold
+
+@media screen and (max-width:1000px)
+  body
+    padding: 70px clamp(10px, 5vw, 85px)
+    font-family: $FontSizeParagraph
+    position: relative
+
+@media screen and (max-width:860px)
+  body
+    padding: 70px clamp(10px, 5vw, 85px)
+    font-family: $FontSizeParagraph
+    position: relative
+  .main
+    display: grid
+    grid-template-areas: 'port port''new asideNew'
+    gap: 20px 25px
+    justify-content: space-between
+    align-content: space-between
+    .main__port
+      grid-area: port
+      width: 100%
+      max-height: 300px
+    .main__new
+      display: flex
+      flex-direction: column
+      gap: 20px
+      .new__link
+        margin: 0
+    .main__asideNews
+      justify-self: flex-end
+
+@media screen and (max-width:585px)
+  body
+    padding: 30px clamp(10px, 9vw, 120px) 80px
+    font-family: $FontSizeParagraph
+    position: relative
+
+  .header
+    padding-block-end: 38px
+    position: relative
+    .header__nav
+      display: flex
+      justify-content: space-between
+      align-items: center
+      .nav__menu
+        flex-direction: column
+        width: 230px
+        background: white
+        position: fixed
+        inset: 0 -240px 0 auto
+        height: 100vh
+        padding: 0 20px
+        justify-content: center
+        z-index: 1
+        transition: 1s
+        &:target
+          inset: 0 0 0 auto
+          padding: 0 20px
+          justify-content: center
+
+      .nav__icon
+        display: block
+        position: absolute
+      .nav__icon-open
+        right: 0
+        z-index: 1
+      .nav__icon-close
+        z-index: 2
+        top: 30px
+        right: 30px
+
+  .main
+    display: grid
+    grid-template-areas: 'port' 'new' 'asideNew'
+    gap: 20px 25px
+    justify-content: space-between
+    align-content: space-between
