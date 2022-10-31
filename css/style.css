@@ -13,6 +13,7 @@ body {
   padding: 70px clamp(10px, 9vw, 120px);
   font-family: 15px;
   position: relative;
+  background: hsl(36deg, 100%, 99%);
 }
 
 .header {
@@ -32,7 +33,7 @@ body {
   gap: 20px;
 }
 .header .header__nav .nav__menu .menu__link {
-  color: hsl(240deg, 100%, 5%);
+  color: hsl(236deg, 13%, 42%);
   text-decoration: none;
 }
 .header .header__nav .nav__menu .menu__link:hover {
@@ -68,6 +69,7 @@ body {
 .main .main__new .new__information {
   max-width: 340px;
   line-height: 1.3em;
+  color: hsl(236deg, 13%, 42%);
 }
 .main .main__new .new__link {
   width: 170px;
